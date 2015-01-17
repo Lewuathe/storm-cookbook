@@ -1,0 +1,9 @@
+description "Storm <%= @service %> upstart"
+author  "Kai Sasaki <lewuathe@me.com>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+chdir /usr/share/storm/0.10.0-SNAPSHOT
+exec bin/storm <%= @service %> 2>&1
+respawn
