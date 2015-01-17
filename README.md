@@ -98,3 +98,5 @@ Contributing
 License and Authors
 -------------------
 Authors: Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
+
+This cookbook is distributed under [MIT License](http://opensource.org/licenses/MIT)
