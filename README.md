@@ -1,8 +1,6 @@
 storm-cookbook
 ==============
 
-!! Caution: This repository is under development
-
 This is chef cookbook for apache storm
 
 Requirements
@@ -59,6 +57,8 @@ Attributes
 
 Usage
 -----
+First you have to add your storm package under `files/default` as tar.gz format.
+
 #### storm::default
 
 
