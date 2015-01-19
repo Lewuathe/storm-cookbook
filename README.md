@@ -3,6 +3,10 @@ storm-cookbook
 
 This is chef cookbook for apache storm
 
+Download
+----------
+[storm-cluster: Chef Supermarket](https://supermarket.chef.io/cookbooks/storm-cluster)
+
 Requirements
 ------------
 

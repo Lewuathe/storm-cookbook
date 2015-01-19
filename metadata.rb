@@ -1,4 +1,4 @@
-name             'storm'
+name             'storm-cluster'
 maintainer       'Kai Sasaki'
 maintainer_email 'lewuathe@me.com'
 license          'MIT License'
