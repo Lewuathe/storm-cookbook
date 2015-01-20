@@ -1,8 +1,4 @@
-include_recipe 'storm::common'
-
-storm_package_name = node['storm'][:package]
-storm_version = node['storm'][:version] 
-install_dir = node['storm'][:install_dir]
+include_recipe 'storm-cluster::common'
 
 template "/etc/init/storm-supervisor.conf" do
   source 'storm-daemon.conf.erb'

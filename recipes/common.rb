@@ -1,5 +1,9 @@
 include_recipe 'java'
 
+storm_package_name = node['storm'][:package]
+storm_version = node['storm'][:version]
+install_dir = node['storm'][:install_dir]
+
 group 'storm' do
   action :create
 end
