@@ -43,8 +43,4 @@ template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
   mode '0440'
   owner 'root'
   group 'root'
-  variables(
-              :nimbus_ip => node['storm'][:nimbus_ip],
-              :zookeeper_ip => node['storm'][:zookeeper_ip]
-  )
 end
