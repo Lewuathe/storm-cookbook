@@ -3,6 +3,7 @@ default['storm']['package'] = "apache-storm-#{node['storm']['version']}"
 default['storm']['install_dir'] = '/usr/share/storm'
 default['storm']['zookeeper_ips'] = []
 default['storm']['nimbus_ip'] = 'nimbus'
+default['storm']['drpc_ips'] = []
 
 default['storm']['install_method'] = 'cookbook_file'
 

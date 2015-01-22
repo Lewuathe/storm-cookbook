@@ -21,6 +21,11 @@ storm.zookeeper.servers:
 <% end %>
 
 nimbus.host: "<%= node['storm']['nimbus_ip'] %>"
+
+drpc.servers:
+<% node['storm']['drpc_ips'].each do |ip| %>
+    - "<%= ip %>"
+<% end %>
 #
 #
 # ##### These may optionally be filled in:
