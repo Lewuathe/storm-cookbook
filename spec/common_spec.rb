@@ -16,7 +16,7 @@ describe 'storm-cluster::nimbus' do
       comment: 'For storm services',
       group:     'storm',
       home:    '/home/storm',
-      shell:   '/bin/bash',
+      shell:   '/bin/bash'
    )
   end
 
@@ -24,12 +24,13 @@ describe 'storm-cluster::nimbus' do
     expect(chef_run).to create_directory('/usr/share/storm').with(
       owner: 'root',
       group: 'root',
-      mode:  '0644',
+      mode:  '0644'
     )
   end
 
   it 'creates the file "/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz"' do
-    expect(chef_run).to create_cookbook_file('/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz').with(
+    expect(chef_run).to create_cookbook_file(
+      '/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz').with(
       source: 'apache-storm-0.10.0-SNAPSHOT.tar.gz'
     )
   end
@@ -37,16 +38,17 @@ describe 'storm-cluster::nimbus' do
   it 'runs the install script' do
     expect(chef_run).to run_script('install_storm').with(
       interpreter: 'bash',
-      user:        'root',
+      user:        'root'
     )
   end
 
   it 'adds the tempalted file /usr/share/storm/apache-storm-0.10.0-SNAPSHOT/conf/storm.yaml' do
-    expect(chef_run).to create_template('/usr/share/storm/0.10.0-SNAPSHOT/conf/storm.yaml').with(
-      source: 'storm.yaml.erb',
-      mode:   '0440',
-      owner:  'root',
-      group:  'root',
+    expect(chef_run).to create_template(
+      '/usr/share/storm/0.10.0-SNAPSHOT/conf/storm.yaml').with(
+        source: 'storm.yaml.erb',
+        mode:   '0440',
+        owner:  'root',
+        group:  'root'
     )
   end
 end

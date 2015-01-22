@@ -1,23 +1,23 @@
 include_recipe 'storm-cluster::common'
 
-template "/etc/init/storm-nimbus.conf" do
+template '/etc/init/storm-nimbus.conf' do
   source 'storm-daemon.conf.erb'
   mode '0644'
   owner 'root'
   group 'root'
-  variables({
-    :service => 'nimbus'
-  })
+  variables(
+              :service => 'nimbus'
+  )
 end
 
-template "/etc/init/storm-ui.conf" do
+template '/etc/init/storm-ui.conf' do
   source 'storm-daemon.conf.erb'
   mode '0644'
   owner 'root'
   group 'root'
-  variables({
-    :service => 'ui'
-  })
+  variables(
+              :service => 'ui'
+  )
 end
 
 service 'storm-nimbus' do
@@ -28,19 +28,18 @@ service 'storm-ui' do
   action :start
 end
 
-
-#script "start_nimbus" do
-#  interpreter "bash"
-#  user "storm"
+# script 'start_nimbus' do
+#  interpreter 'bash'
+#  user 'storm'
 #  code <<-EOL
 #    #{install_dir}/#{storm_version}/bin/storm nimbus
 #  EOL
-#end
+# end
 #
-#script "start_ui" do
-#  interpreter "bash"
-#  user "storm"
+# script 'start_ui' do
+#  interpreter 'bash'
+#  user 'storm'
 #  code <<-EOL
 #    #{install_dir}/#{storm_version}/bin/storm ui
 #  EOL
-#end
+# end
