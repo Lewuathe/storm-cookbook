@@ -18,6 +18,8 @@
 storm.zookeeper.servers:
 
 nimbus.host: "nimbus"
+
+drpc.servers:
 #
 #
 # ##### These may optionally be filled in:
