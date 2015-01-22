@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'storm-cluster::nimbus' do
+describe 'storm-cluster::common' do
   cached(:chef_run) { ChefSpec::ServerRunner.converge(described_recipe) }
 
   it 'Includes the java recipe' do
@@ -28,10 +28,10 @@ describe 'storm-cluster::nimbus' do
     )
   end
 
-  it 'creates the file "/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz"' do
+  it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
     expect(chef_run).to create_cookbook_file(
-      '/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz').with(
-      source: 'apache-storm-0.10.0-SNAPSHOT.tar.gz'
+      '/tmp/apache-storm-0.9.3.tar.gz').with(
+      source: 'apache-storm-0.9.3.tar.gz'
     )
   end
 
@@ -42,9 +42,9 @@ describe 'storm-cluster::nimbus' do
     )
   end
 
-  it 'adds the tempalted file /usr/share/storm/apache-storm-0.10.0-SNAPSHOT/conf/storm.yaml' do
+  it 'adds the tempalted file /usr/share/storm/apache-storm-0.9.3/conf/storm.yaml' do
     expect(chef_run).to create_template(
-      '/usr/share/storm/0.10.0-SNAPSHOT/conf/storm.yaml').with(
+      '/usr/share/storm/0.9.3/conf/storm.yaml').with(
         source: 'storm.yaml.erb',
         mode:   '0440',
         owner:  'root',
