@@ -16,7 +16,7 @@ describe 'storm-cluster::drpc' do
     )
   end
 
-  it 'starts the storm-supervisor service' do
-    expect(chef_run).to start_service('storm-supervisor')
+  it 'starts the storm-drpc service' do
+    expect(chef_run).to start_service('storm-drpc')
   end
 end
