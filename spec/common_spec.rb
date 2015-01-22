@@ -51,4 +51,9 @@ describe 'storm-cluster::common' do
         group:  'root'
     )
   end
+
+  it 'renders the template storm.yaml tempalte with contents from ./spec/rendered_templates/storm.yaml' do
+    storm_yaml = File.read('./spec/rendered_templates/storm.yaml')
+    expect(chef_run).to render_file('/usr/share/storm/0.9.3/conf/storm.yaml').with_content(storm_yaml)
+  end
 end

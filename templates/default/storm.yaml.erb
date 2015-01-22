@@ -20,7 +20,7 @@ storm.zookeeper.servers:
     - "<%= ip %>"
 <% end %>
 
-nimbus.host: "<%= @nimbus_ip %>"
+nimbus.host: "<%= node['storm']['nimbus_ip'] %>"
 #
 #
 # ##### These may optionally be filled in:
