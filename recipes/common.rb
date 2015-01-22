@@ -44,6 +44,7 @@ script 'install_storm' do
     mv #{install_dir}/#{storm_package_name} #{install_dir}/#{storm_version}
     chown -R storm:storm #{install_dir}/#{storm_version}
   EOL
+  not_if { ::File.exists?("#{install_dir}/#{storm_version}") }
 end
 
 template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
