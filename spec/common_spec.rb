@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'storm-cluster::common' do
-  context 'default' do
+  context 'When all attributes are default, on an unspecified platform' do
     cached(:chef_run) { ChefSpec::ServerRunner.new(:file_cache_path => '/var/chef/cache').converge(described_recipe) }
 
     it 'Includes the java recipe' do
@@ -58,7 +58,7 @@ describe 'storm-cluster::common' do
       expect(chef_run).to render_file('/usr/share/storm/0.9.3/conf/storm.yaml').with_content(storm_yaml)
     end
   end
-  context 'remote_file install' do
+  context 'When install type set to "remote_file", on an unspecified platform' do
     cached(:chef_run) do
       ChefSpec::ServerRunner.new do |node|
         node.set['storm']['install_method'] = 'remote_file'
@@ -68,7 +68,7 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_remote_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-        source: 'http://www.apache.org/dyn/closer.cgi/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
+        source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
       )
     end
   end
