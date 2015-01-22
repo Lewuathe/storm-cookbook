@@ -16,7 +16,9 @@
 
 ########### These MUST be filled in for a storm configuration
 storm.zookeeper.servers:
-    - "<%= @zookeeper_ip %>"
+<% node['storm']['zookeeper_ips'].each do |ip| %>
+    - "<%= ip %>"
+<% end %>
 
 nimbus.host: "<%= @nimbus_ip %>"
 #
