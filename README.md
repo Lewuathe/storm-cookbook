@@ -101,6 +101,9 @@ Contributing
 
 License and Authors
 -------------------
-Authors: Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
+Authors: 
+* Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
+* Bill Warner([TD-4242](https://github.com/TD-4242))
+
 
 This cookbook is distributed under [MIT License](http://opensource.org/licenses/MIT)
