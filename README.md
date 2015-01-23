@@ -1,4 +1,4 @@
-storm-cookbook
+storm-cookbook [![Build Status](https://travis-ci.org/Lewuathe/storm-cookbook.svg?branch=master)](https://travis-ci.org/Lewuathe/storm-cookbook)
 ==============
 
 This is a chef cookbook for [apache storm](http://storm.apache.org/)
@@ -109,6 +109,9 @@ Contributing
 
 License and Authors
 -------------------
-Authors: Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
+Authors: 
+* Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
+* Bill Warner([TD-4242](https://github.com/TD-4242))
+
 
 This cookbook is distributed under [MIT License](http://opensource.org/licenses/MIT)

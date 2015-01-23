@@ -65,5 +65,4 @@ desc 'Run all tests on Travis'
 task travis: ['style', 'unit']
 
 # Default
-# task default: ['unit', 'style', 'integration:kitchen:all']
 task default: ['unit', 'style', 'integration:kitchen:all']
