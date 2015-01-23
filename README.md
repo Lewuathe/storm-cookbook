@@ -1,4 +1,4 @@
-storm-cookbook
+storm-cookbook [![Build Status](https://travis-ci.org/Lewuathe/storm-cookbook.svg?branch=master)](https://travis-ci.org/Lewuathe/storm-cookbook)
 ==============
 
 This is chef cookbook for apache storm
