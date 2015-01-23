@@ -1,32 +1,31 @@
 include_recipe 'storm-cluster::common'
 
-template "/etc/init/storm-supervisor.conf" do
+template '/etc/init/storm-supervisor.conf' do
   source 'storm-daemon.conf.erb'
   mode '0644'
   owner 'root'
   group 'root'
-  variables({
-    :service => 'supervisor'
-  })
+  variables(
+              :service => 'supervisor'
+  )
 end
 
 service 'storm-supervisor' do
   action :start
 end
 
-
-#script "start_nimbus" do
-#  interpreter "bash"
-#  user "storm"
+# script 'start_nimbus' do
+#  interpreter 'bash'
+#  user 'storm'
 #  code <<-EOL
 #    #{install_dir}/#{storm_version}/bin/storm nimbus
 #  EOL
-#end
+# end
 #
-#script "start_ui" do
-#  interpreter "bash"
-#  user "storm"
+# script 'start_ui' do
+#  interpreter 'bash'
+#  user 'storm'
 #  code <<-EOL
 #    #{install_dir}/#{storm_version}/bin/storm ui
 #  EOL
-#end
+# end
