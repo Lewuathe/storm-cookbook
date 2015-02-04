@@ -11,11 +11,11 @@ cookbook_file 'config_hosts.sh' do
 end
 
 script 'config_hosts' do
-  cwd '/tmp'
+  interpreter 'bash'
   user 'root'
-  code <<-EOH
-  ./config_hosts.sh
-  EOH
+  code <<-EOL
+     sudo ./tmp/config_hosts.sh
+  EOL
 end
 
 group 'storm' do
