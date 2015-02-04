@@ -4,6 +4,20 @@ storm_package_name = node['storm']['package']
 storm_version = node['storm']['version']
 install_dir = node['storm']['install_dir']
 
+cookbook_file 'config_hosts.sh' do
+  path '/tmp/config_hosts.sh'
+  mode '0755'
+  action :create
+end
+
+script 'config_hosts' do
+  cwd '/tmp'
+  user 'root'
+  code <<-EOH
+  ./config_hosts.sh
+  EOH
+end
+
 group 'storm' do
   action :create
 end

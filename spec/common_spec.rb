@@ -35,6 +35,13 @@ describe 'storm-cluster::nimbus' do
     )
   end
 
+  it 'creates the file "/tmp/config_hosts.sh"' do
+    expect(chef_run).to create_cookbook_file(
+      '/tmp/config_hosts.sh').with(
+      source: 'config_hosts.sh'
+    )
+  end
+
   it 'runs the install script' do
     expect(chef_run).to run_script('install_storm').with(
       interpreter: 'bash',
