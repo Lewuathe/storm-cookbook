@@ -6,7 +6,7 @@ template '/etc/init/storm-drpc.conf' do
   owner 'root'
   group 'root'
   variables(
-             :service => 'drpc'
+    :service => 'drpc'
   )
 end
 
