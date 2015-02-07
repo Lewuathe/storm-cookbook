@@ -31,14 +31,14 @@ describe 'storm-cluster::nimbus' do
   it 'creates the file "/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz"' do
     expect(chef_run).to create_cookbook_file(
       '/tmp/apache-storm-0.10.0-SNAPSHOT.tar.gz').with(
-      source: 'apache-storm-0.10.0-SNAPSHOT.tar.gz'
+        source: 'apache-storm-0.10.0-SNAPSHOT.tar.gz'
     )
   end
 
   it 'creates the file "/tmp/config_hosts.sh"' do
     expect(chef_run).to create_cookbook_file(
       '/tmp/config_hosts.sh').with(
-      source: 'config_hosts.sh'
+        source: 'config_hosts.sh'
     )
   end
 
