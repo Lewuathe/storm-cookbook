@@ -68,14 +68,11 @@ $ cp <your storm package> cookbooks/storm-cluster/files/default/
 ```
 
 ## Recipes
-### storm::nimbus
-### storm::supervisor
-### storm::drpc
-
 
 e.g.
 Just include `storm` in your node's `run_list`:
 
+### storm::nimbus
 For nimbus node
 ```json
 {
@@ -86,6 +83,7 @@ For nimbus node
 }
 ```
 
+### storm::supervisor
 For supervisor node
 ```json
 {
@@ -96,6 +94,7 @@ For supervisor node
 }
 ```
 
+### storm::drpc
 For DRPC server
 ```json
 {
