@@ -16,10 +16,12 @@
 
 ########### These MUST be filled in for a storm configuration
 storm.zookeeper.servers:
+    - "192.168.50.3"
 
-nimbus.host: "nimbus"
+nimbus.host: "192.168.50.4"
 
 drpc.servers:
+    - "192.168.50.8"
 #
 #
 # ##### These may optionally be filled in:
