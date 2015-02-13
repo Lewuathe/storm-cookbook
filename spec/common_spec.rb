@@ -51,4 +51,9 @@ describe 'storm-cluster::nimbus' do
         group:  'root'
     )
   end
+
+  it 'renders storm.yaml with content matching ./spec/rendered_templates/storm.yaml' do
+    storm_yaml = File.read('./spec/rendered_templates/storm.yaml')
+    expect(chef_run).to render_file('/usr/share/storm/0.10.0-SNAPSHOT/conf/storm.yaml').with_content(storm_yaml)
+  end
 end

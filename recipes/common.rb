@@ -43,4 +43,7 @@ template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
   mode '0440'
   owner 'root'
   group 'root'
+  variables({
+    'storm_yaml' => node['storm']['storm_yaml'] 
+  })
 end
