@@ -7,6 +7,10 @@ group :test do
   gem 'foodcritic'
   gem 'rubocop'
   gem 'chefspec'
+  gem 'guard'
+  gem 'guard-chefspec'
+  gem 'guard-rubocop'
+  gem 'guard-foodcritic'
 end
 
 group :integration do
