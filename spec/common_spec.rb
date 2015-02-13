@@ -46,8 +46,8 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-        source: 'apache-storm-0.9.3.tar.gz'
-      )
+          source: 'apache-storm-0.9.3.tar.gz'
+        )
     end
 
     it 'runs the install script' do
@@ -82,7 +82,7 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_remote_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-        source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
+          source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
       )
     end
   end
