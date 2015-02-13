@@ -1,7 +1,7 @@
 storm-cookbook [![Build Status](https://travis-ci.org/Lewuathe/storm-cookbook.svg?branch=master)](https://travis-ci.org/Lewuathe/storm-cookbook)
 ==============
 
-This is chef cookbook for apache storm
+This is a chef cookbook for [apache storm](http://storm.apache.org/)
 
 Download
 ----------
@@ -9,6 +9,8 @@ Download
 
 Requirements
 ------------
+Chef: 11.18.0+
+java
 
 Attributes
 ----------
@@ -22,40 +24,46 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['storm'][:package]</tt></td>
+    <td><tt>['storm']['package']</tt></td>
     <td>String</td>
     <td>Storm package name for constructing storm cluster</td>
     <td><tt>apache-storm-0.10.0-SNAPSHOT</tt></td>
   </tr>
   
   <tr>
-    <td><tt>['storm'][:version]</tt></td>
+    <td><tt>['storm']['version']</tt></td>
     <td>String</td>
     <td>Storm version</td>
     <td><tt>0.10.0-SNAPSHOT</tt></td>
   </tr>
   
   <tr>
-    <td><tt>['storm'][:install_dir]</tt></td>
+    <td><tt>['storm']['install_dir']</tt></td>
     <td>String</td>
     <td>Storm package install directory</td>
     <td><tt>/usr/share/storm</tt></td>
   </tr>
   
   <tr>
-    <td><tt>['storm'][:zookeeper_ip]</tt></td>
+    <td><tt>['storm']['zookeeper_ip']</tt></td>
     <td>String</td>
-    <td>Zookeeper server IP address</td>
-    <td><tt>192.168.50.3</tt></td>
+    <td>Zookeeper server IP addresses.  Set to an array of IPs</td>
+    <td><tt>[]</tt></td>
   </tr>
 
   <tr>
-    <td><tt>['storm'][:nimbus_ip]</tt></td>
+    <td><tt>['storm']['nimbus_ip']</tt></td>
     <td>String</td>
-    <td>Storm nimbus server IP address</td>
-    <td><tt>192.168.50.4</tt></td>
+    <td>Storm nimbus server IP address, or insure nimbus dns name resolves to your nimbus server</td>
+    <td><tt>nimbus</tt></td>
   </tr>
   
+  <tr>
+    <td><tt>['storm']['install_method']</tt></td>
+    <td>String</td>
+    <td>Set to remote_file to download from storm.apache.org</td>
+    <td><tt>cookbook_file</tt></td>
+  </tr>
   
 </table>
 
