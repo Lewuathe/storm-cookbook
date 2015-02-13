@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'storm-cluster::common' do
   context 'When all attributes are default, on an unspecified platform' do
-    cached(:chef_run) { ChefSpec::ServerRunner.new(:file_cache_path => '/var/chef/cache').converge(described_recipe) }
+    cached(:chef_run) { ChefSpec::ServerRunner.new(:file_cache_path => '/tmp').converge(described_recipe) }
 
     it 'Includes the java recipe' do
       expect(chef_run).to include_recipe('java')
@@ -10,6 +10,20 @@ describe 'storm-cluster::common' do
 
     it 'adds the storm group to the system' do
       expect(chef_run).to create_group('storm')
+    end
+
+    it 'creates the file "/tmp/config_hosts.sh"' do
+      expect(chef_run).to create_cookbook_file(
+        '/tmp/config_hosts.sh').with(
+          source: 'config_hosts.sh'
+      )
+    end
+
+    it 'runs the config_hosts.sh script' do
+      expect(chef_run).to run_script('config_hosts').with(
+        interpreter: 'bash',
+        user:        'root'
+      )
     end
 
     it 'adds the storm user to run the storm application as' do
@@ -50,13 +64,6 @@ describe 'storm-cluster::common' do
           mode:   '0440',
           owner:  'root',
           group:  'root'
-      )
-    end
-
-    it 'creates the file "/tmp/config_hosts.sh"' do
-      expect(chef_run).to create_cookbook_file(
-        '/tmp/config_hosts.sh').with(
-          source: 'config_hosts.sh'
       )
     end
 
