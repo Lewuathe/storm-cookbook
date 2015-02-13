@@ -16,16 +16,12 @@
 
 ########### These MUST be filled in for a storm configuration
 storm.zookeeper.servers:
-<% node['storm']['zookeeper_ips'].each do |ip| %>
-    - "<%= ip %>"
-<% end %>
+    - "<%= @zookeeper_ip %>"
 
-nimbus.host: "<%= node['storm']['nimbus_ip'] %>"
+nimbus.host: "<%= @nimbus_ip %>"
 
 drpc.servers:
-<% node['storm']['drpc_ips'].each do |ip| %>
-    - "<%= ip %>"
-<% end %>
+    - "<%= @drpc_ip %>"
 #
 #
 # ##### These may optionally be filled in:
