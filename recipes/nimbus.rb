@@ -6,7 +6,7 @@ template '/etc/init/storm-nimbus.conf' do
   owner 'root'
   group 'root'
   variables(
-              :service => 'nimbus'
+    :service => 'nimbus'
   )
 end
 
@@ -16,7 +16,7 @@ template '/etc/init/storm-ui.conf' do
   owner 'root'
   group 'root'
   variables(
-              :service => 'ui'
+    :service => 'ui'
   )
 end
 

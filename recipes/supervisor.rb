@@ -6,7 +6,7 @@ template '/etc/init/storm-supervisor.conf' do
   owner 'root'
   group 'root'
   variables(
-              :service => 'supervisor'
+    :service => 'supervisor'
   )
 end
 
