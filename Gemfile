@@ -9,6 +9,7 @@ group :test do
   gem 'chefspec'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-rubocop'
   gem 'guard-foodcritic'
 end
 

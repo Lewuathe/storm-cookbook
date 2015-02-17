@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'storm-cluster::common' do
   context 'When all attributes are default, on an unspecified platform' do
-    cached(:chef_run) { ChefSpec::ServerRunner.new(:file_cache_path => '/var/chef/cache').converge(described_recipe) }
+    cached(:chef_run) { ChefSpec::ServerRunner.new(:file_cache_path => '/tmp').converge(described_recipe) }
 
     it 'Includes the java recipe' do
       expect(chef_run).to include_recipe('java')
@@ -32,7 +32,7 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-        source: 'apache-storm-0.9.3.tar.gz'
+          source: 'apache-storm-0.9.3.tar.gz'
       )
     end
 
@@ -68,7 +68,7 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_remote_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-        source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
+          source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
       )
     end
   end

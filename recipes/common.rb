@@ -44,7 +44,7 @@ script 'install_storm' do
     mv #{install_dir}/#{storm_package_name} #{install_dir}/#{storm_version}
     chown -R storm:storm #{install_dir}/#{storm_version}
   EOL
-  not_if { ::File.exists?("#{install_dir}/#{storm_version}") }
+  not_if { ::File.exist?("#{install_dir}/#{storm_version}") }
 end
 
 template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
@@ -52,7 +52,7 @@ template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
   mode '0440'
   owner 'root'
   group 'root'
-  variables({
-    'storm_yaml' => node['storm']['storm_yaml'] 
-  })
+  variables(
+    'storm_yaml' => node['storm']['storm_yaml']
+  )
 end
