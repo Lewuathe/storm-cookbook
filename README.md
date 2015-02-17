@@ -67,6 +67,21 @@ Attributes
   
 </table>
 
+All storm.yaml options are supported through the node['storm']['storm_yaml'] not object.  See the attributes/storm_yaml.rb for more details.
+
+At a minimum you will need create a role/environment/wrapper with the following options:
+
+<pre>
+"storm": {
+  "storm_yaml": {
+    "nimbus.host": "nimbus.example.com",
+    "storm.zookeeper.servers": [
+      "zookeeper1.example.com"
+    ]
+  }
+}
+</pre>
+
 Usage
 -----
 First you have to add your storm package under `files/default` as tar.gz format.
