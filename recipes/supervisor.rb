@@ -11,6 +11,10 @@ template '/etc/init/storm-supervisor.conf' do
 end
 
 service 'storm-supervisor' do
+  supports :status => true, :restart => true
+  if node['platform'] == 'ubuntu' && node['platform_version'] == '14.04'
+    then provider Chef::Provider::Service::Upstart
+  end
   action :start
 end
 

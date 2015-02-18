@@ -16,6 +16,11 @@ describe 'storm-cluster::nimbus' do
     )
   end
 
+  it 'renders the file /etc/init/storm-nimbus.conf with content from ./spec/rendered_templates/storm-nimbus.conf' do
+    storm_nimbus_conf = File.read('./spec/rendered_templates/storm-nimbus.conf')
+    expect(chef_run).to render_file('/etc/init/storm-nimbus.conf').with_content(storm_nimbus_conf)
+  end
+
   it 'adds the template /etc/init/storm-ui.conf' do
     expect(chef_run).to create_template('/etc/init/storm-ui.conf').with(
       source: 'storm-daemon.conf.erb',
@@ -23,6 +28,11 @@ describe 'storm-cluster::nimbus' do
       owner:  'root',
       group:  'root'
     )
+  end
+
+  it 'renders the file /etc/init/storm-ui.conf with content from ./spec/rendered_templates/storm-ui.conf' do
+    storm_ui_conf = File.read('./spec/rendered_templates/storm-ui.conf')
+    expect(chef_run).to render_file('/etc/init/storm-ui.conf').with_content(storm_ui_conf)
   end
 
   it 'starts the storm-nimbus service' do

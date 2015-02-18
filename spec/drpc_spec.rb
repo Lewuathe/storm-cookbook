@@ -16,6 +16,11 @@ describe 'storm-cluster::drpc' do
     )
   end
 
+  it 'renders the file /etc/init/storm-drpc.conf with content from ./spec/rendered_templates/storm-drpc.conf' do
+    storm_drpc_conf = File.read('./spec/rendered_templates/storm-drpc.conf')
+    expect(chef_run).to render_file('/etc/init/storm-drpc.conf').with_content(storm_drpc_conf)
+  end
+
   it 'starts the storm-drpc service' do
     expect(chef_run).to start_service('storm-drpc')
   end

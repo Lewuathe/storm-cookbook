@@ -4,6 +4,6 @@ author  "Kai Sasaki <lewuathe@me.com>"
 start on runlevel [2345]
 stop on runlevel [016]
 
-chdir /usr/share/storm/0.10.0-SNAPSHOT
+chdir <%= node['storm']['install_dir'] %>/<%= node['storm']['version'] %>
 exec bin/storm <%= @service %> 2>&1
 respawn

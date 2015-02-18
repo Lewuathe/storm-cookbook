@@ -16,6 +16,11 @@ describe 'storm-cluster::supervisor' do
     )
   end
 
+  it 'renders the file /etc/init/storm-supervisor.conf with content from ./spec/rendered_templates/storm-supervisor.conf' do
+    storm_supervisor_conf = File.read('./spec/rendered_templates/storm-supervisor.conf')
+    expect(chef_run).to render_file('/etc/init/storm-supervisor.conf').with_content(storm_supervisor_conf)
+  end
+
   it 'starts the storm-supervisor service' do
     expect(chef_run).to start_service('storm-supervisor')
   end

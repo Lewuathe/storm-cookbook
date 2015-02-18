@@ -21,10 +21,18 @@ template '/etc/init/storm-ui.conf' do
 end
 
 service 'storm-nimbus' do
+  supports :status => true, :restart => true
+  if node['platform'] == 'ubuntu' && node['platform_version'] == '14.04'
+    then provider Chef::Provider::Service::Upstart
+  end
   action :start
 end
 
 service 'storm-ui' do
+  supports :status => true, :restart => true
+  if node['platform'] == 'ubuntu' && node['platform_version'] == '14.04'
+    then provider Chef::Provider::Service::Upstart
+  end
   action :start
 end
 
