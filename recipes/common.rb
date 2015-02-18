@@ -5,6 +5,20 @@ storm_version = node['storm']['version']
 storm_remote_name = "#{node['storm']['download_url']}#{node['storm']['download_dir']}"
 install_dir = node['storm']['install_dir']
 
+cookbook_file 'config_hosts.sh' do
+  path '/tmp/config_hosts.sh'
+  mode '0755'
+  action :create
+end
+
+script 'config_hosts' do
+  interpreter 'bash'
+  user 'root'
+  code <<-EOL
+     sudo ./tmp/config_hosts.sh
+  EOL
+end
+
 group 'storm' do
   action :create
 end

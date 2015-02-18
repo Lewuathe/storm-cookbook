@@ -10,7 +10,6 @@
 /features/config.yml
 *.gem
 /Gemfile.lock
-Guardfile
 .kitchen/
 .kitchen.local.yml
 /pkg

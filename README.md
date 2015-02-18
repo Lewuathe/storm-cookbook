@@ -72,12 +72,16 @@ Usage
 -----
 First you have to add your storm package under `files/default` as tar.gz format.
 
-#### storm::default
+```
+$ cp <your storm package> cookbooks/storm-cluster/files/default/
+```
 
+## Recipes
 
 e.g.
 Just include `storm` in your node's `run_list`:
 
+### storm::nimbus
 For nimbus node
 ```json
 {
@@ -88,6 +92,7 @@ For nimbus node
 }
 ```
 
+### storm::supervisor
 For supervisor node
 ```json
 {
@@ -95,6 +100,17 @@ For supervisor node
   "run_list": [
     "storm::supervisor"
   ]
+}
+```
+
+### storm::drpc
+For DRPC server
+```json
+{
+  "name": "drpc_host",
+  "run_list": [
+    "storm::drpc"
+  ] 
 }
 ```
 

@@ -1,4 +1,3 @@
 ---
 nimbus.host: ''
 storm.zookeeper.servers:
-- ''
