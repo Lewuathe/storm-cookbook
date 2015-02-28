@@ -45,20 +45,6 @@ Attributes
   </tr>
   
   <tr>
-    <td><tt>['storm']['zookeeper_ip']</tt></td>
-    <td>String</td>
-    <td>Zookeeper server IP addresses.  Set to an array of IPs</td>
-    <td><tt>[]</tt></td>
-  </tr>
-
-  <tr>
-    <td><tt>['storm']['nimbus_ip']</tt></td>
-    <td>String</td>
-    <td>Storm nimbus server IP address, or insure nimbus dns name resolves to your nimbus server</td>
-    <td><tt>nimbus</tt></td>
-  </tr>
-  
-  <tr>
     <td><tt>['storm']['install_method']</tt></td>
     <td>String</td>
     <td>Set to remote_file to download from storm.apache.org</td>
@@ -66,6 +52,21 @@ Attributes
   </tr>
   
 </table>
+
+All storm.yaml options are supported through the node['storm']['storm_yaml'] not object.  See the attributes/storm_yaml.rb for more details.
+
+At a minimum you will need create a role/environment/wrapper with the following options:
+
+<pre>
+"storm": {
+  "storm_yaml": {
+    "nimbus.host": "nimbus.example.com",
+    "storm.zookeeper.servers": [
+      "zookeeper1.example.com"
+    ]
+  }
+}
+</pre>
 
 Usage
 -----

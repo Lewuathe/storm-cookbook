@@ -47,7 +47,7 @@ describe 'storm-cluster::common' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
           source: 'apache-storm-0.9.3.tar.gz'
-        )
+      )
     end
 
     it 'runs the install script' do
