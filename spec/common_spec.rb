@@ -35,8 +35,8 @@ describe 'storm-cluster::common' do
      )
     end
 
-    it 'creates the directory /usr/share/storm' do
-      expect(chef_run).to create_directory('/usr/share/storm').with(
+    it "creates the directory #{node['storm']['install_dir']}" do
+      expect(chef_run).to create_directory(node['storm']['install_dir']).with(
         owner: 'root',
         group: 'root',
         mode:  '0644'
