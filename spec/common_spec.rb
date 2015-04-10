@@ -16,14 +16,14 @@ describe 'storm-cluster::common' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/config_hosts.sh').with(
           source: 'config_hosts.sh'
-      )
+          )
     end
 
     it 'runs the config_hosts.sh script' do
       expect(chef_run).to run_script('config_hosts').with(
         interpreter: 'bash',
         user:        'root'
-      )
+        )
     end
 
     it 'adds the storm user to run the storm application as' do
@@ -32,7 +32,7 @@ describe 'storm-cluster::common' do
         group:     'storm',
         home:    '/home/storm',
         shell:   '/bin/bash'
-     )
+        )
     end
 
     it "creates the directory #{node['storm']['install_dir']}" do
@@ -40,14 +40,14 @@ describe 'storm-cluster::common' do
         owner: 'root',
         group: 'root',
         mode:  '0644'
-      )
+        )
     end
 
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
           source: 'apache-storm-0.9.3.tar.gz'
-      )
+        )
     end
 
     it 'runs the install script' do

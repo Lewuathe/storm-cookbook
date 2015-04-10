@@ -35,24 +35,24 @@ scope :group => :unit
 
 group :unit do
   guard :rubocop do
-    watch(/.+\.rb$/)
-    watch(/(?:.+\/)?\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
+    watch(%r{/.+\.rb$/})
+    watch(%r{/(?:.+\/)?\.rubocop\.yml$/}) { |m| File.dirname(m[0]) }
   end
 
   guard :foodcritic, :cli => '--epic-fail any --tags ~FC007 --tags ~FC015 --tags ~FC023', :cookbook_paths => '.', :all_on_start => false do
-    watch(/attributes\/.+\.rb$/)
-    watch(/providers\/.+\.rb$/)
-    watch(/recipes\/.+\.rb$/)
-    watch(/resources\/.+\.rb$/)
-    watch(/definitions\/.+\.rb$/)
+    watch(%r{/attributes\/.+\.rb$/})
+    watch(%r{/providers\/.+\.rb$/})
+    watch(%r{/recipes\/.+\.rb$/})
+    watch(%r{/resources\/.+\.rb$/})
+    watch(%r{/definitions\/.+\.rb$/})
   end
 
   guard :rspec, :cmd => 'chef exec rspec --fail-fast', :all_on_start => false do
-    watch(/{^libraries\/(.+)\.rb$/)
-    watch(/^spec\/(.+)_spec\.rb$/)
-    watch(/^(recipes)\/(.+)\.rb$/)   { |m| "spec/#{m[1]}_spec.rb" }
-    watch(/^recipes\/common\.rb$/)   { 'spec' }
+    watch(%r{/{^libraries\/(.+)\.rb$/})
+    watch(%r{/^spec\/(.+)_spec\.rb$/})
+    watch(%r{/^(recipes)\/(.+)\.rb$/})   { |m| "spec/#{m[1]}_spec.rb" }
+    watch(%r{/^recipes\/common\.rb$/})   { 'spec' }
     watch('spec/spec_helper.rb')      { 'spec' }
-    watch(/^(.+)erb$/) { 'spec' }
+    watch(%r{/^(.+)erb$/}) { 'spec' }
   end
 end
