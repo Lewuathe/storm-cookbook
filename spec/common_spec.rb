@@ -15,15 +15,13 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/config_hosts.sh"' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/config_hosts.sh').with(
-          source: 'config_hosts.sh'
-          )
+          source: 'config_hosts.sh')
     end
 
     it 'runs the config_hosts.sh script' do
       expect(chef_run).to run_script('config_hosts').with(
         interpreter: 'bash',
-        user:        'root'
-        )
+        user:        'root')
     end
 
     it 'adds the storm user to run the storm application as' do
@@ -31,30 +29,26 @@ describe 'storm-cluster::common' do
         comment: 'For storm services',
         group:     'storm',
         home:    '/home/storm',
-        shell:   '/bin/bash'
-        )
+        shell:   '/bin/bash')
     end
 
     it "creates the directory #{node['storm']['install_dir']}" do
       expect(chef_run).to create_directory(node['storm']['install_dir']).with(
         owner: 'root',
         group: 'root',
-        mode:  '0644'
-        )
+        mode:  '0644')
     end
 
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_cookbook_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-          source: 'apache-storm-0.9.3.tar.gz'
-        )
+          source: 'apache-storm-0.9.3.tar.gz')
     end
 
     it 'runs the install script' do
       expect(chef_run).to run_script('install_storm').with(
         interpreter: 'bash',
-        user:        'root'
-      )
+        user:        'root')
     end
 
     it 'adds the tempalted file /usr/share/storm/apache-storm-0.9.3/conf/storm.yaml' do
@@ -63,8 +57,7 @@ describe 'storm-cluster::common' do
           source: 'storm.yaml.erb',
           mode:   '0440',
           owner:  'root',
-          group:  'root'
-      )
+          group:  'root')
     end
 
     it 'renders the template storm.yaml tempalte with contents from ./spec/rendered_templates/storm.yaml' do
@@ -82,8 +75,7 @@ describe 'storm-cluster::common' do
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_remote_file(
         '/tmp/apache-storm-0.9.3.tar.gz').with(
-          source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
-      )
+          source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz')
     end
   end
 end
