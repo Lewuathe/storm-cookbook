@@ -32,11 +32,11 @@ describe 'storm-cluster::common' do
         shell:   '/bin/bash')
     end
 
-    it "creates the directory #{node['storm']['install_dir']}" do
-      expect(chef_run).to create_directory(node['storm']['install_dir']).with(
+    it 'creates the directory /usr/share/storm'  do
+      expect(chef_run).to create_directory('/usr/share/storm').with(
         owner: 'root',
         group: 'root',
-        mode:  '0644')
+        mode:  '0755')
     end
 
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
