@@ -31,10 +31,10 @@ user 'storm' do
   action :create
 end
 
-directory '/usr/share/storm' do
+directory node['storm']['install_dir'] do
   owner 'root'
   group 'root'
-  mode '0644'
+  mode '0755'
   action :create
 end
 
