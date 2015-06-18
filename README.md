@@ -16,42 +16,14 @@ Attributes
 ----------
 
 #### storm::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['storm']['package']</tt></td>
-    <td>String</td>
-    <td>Storm package name for constructing storm cluster</td>
-    <td><tt>apache-storm-0.10.0-SNAPSHOT</tt></td>
-  </tr>
-  
-  <tr>
-    <td><tt>['storm']['version']</tt></td>
-    <td>String</td>
-    <td>Storm version</td>
-    <td><tt>0.10.0-SNAPSHOT</tt></td>
-  </tr>
-  
-  <tr>
-    <td><tt>['storm']['install_dir']</tt></td>
-    <td>String</td>
-    <td>Storm package install directory</td>
-    <td><tt>/usr/share/storm</tt></td>
-  </tr>
-  
-  <tr>
-    <td><tt>['storm']['install_method']</tt></td>
-    <td>String</td>
-    <td>Set to remote_file to download from storm.apache.org</td>
-    <td><tt>cookbook_file</tt></td>
-  </tr>
-  
-</table>
+
+|Key|Type|Description|Default|
+|:---|:---|:---|:---|
+|['storm']['package']|String|Storm package name for constructing storm cluster|apache-storm-0.10.0-SNAPSHOT|
+|['storm']['version']|String|Storm version|0.10.0-SNAPSHOT|
+|['storm']['install_dir']|String|Storm package install directory|/usr/share/storm|
+|['storm']['install_method']|String|Set to remote_file to download from storm.apache.org|cookbook_file|
+
 
 All storm.yaml options are supported through the node['storm']['storm_yaml'] not object.  See the attributes/storm_yaml.rb for more details.
 
@@ -110,7 +82,7 @@ For DRPC server
   "name": "drpc_host",
   "run_list": [
     "storm::drpc"
-  ] 
+  ]
 }
 ```
 
@@ -126,7 +98,7 @@ Contributing
 
 License and Authors
 -------------------
-Authors: 
+Authors:
 * Kai Sasaki([Lewuathe](https://github.com/Lewuathe))
 * Bill Warner([TD-4242](https://github.com/TD-4242))
 
