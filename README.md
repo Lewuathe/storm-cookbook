@@ -1,4 +1,4 @@
-storm-cookbook [![Build Status](https://travis-ci.org/Lewuathe/storm-cookbook.svg?branch=master)](https://travis-ci.org/Lewuathe/storm-cookbook)
+storm-cookbook [![Build Status](https://travis-ci.org/Lewuathe/storm-cookbook.svg?branch=master)](https://travis-ci.org/Lewuathe/storm-cookbook) ![storm-cluster](https://img.shields.io/cookbook/v/storm-cluster.svg) ![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)
 ==============
 
 This is a chef cookbook for [apache storm](http://storm.apache.org/)
