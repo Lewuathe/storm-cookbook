@@ -15,7 +15,7 @@ script 'config_hosts' do
   interpreter 'bash'
   user 'root'
   code <<-EOL
-     sudo ./tmp/config_hosts.sh
+     ./tmp/config_hosts.sh
   EOL
 end
 
