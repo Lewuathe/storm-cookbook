@@ -4,6 +4,9 @@ author  "Kai Sasaki <lewuathe@me.com>"
 start on runlevel [2345]
 stop on runlevel [016]
 
+setuid <%= node['storm']['user'] %>
+setgid <%= node['storm']['user'] %>
+
 chdir <%= node['storm']['install_dir'] %>/<%= node['storm']['version'] %>
 exec bin/storm <%= @service %> 2>&1
 respawn

@@ -1,5 +1,6 @@
 include_recipe 'java'
 
+storm_user = node['storm']['user']
 storm_package_name = node['storm']['package']
 storm_version = node['storm']['version']
 storm_remote_name = "#{node['storm']['download_url']}#{node['storm']['download_dir']}"
@@ -19,14 +20,14 @@ script 'config_hosts' do
   EOL
 end
 
-group 'storm' do
+group storm_user do
   action :create
 end
 
-user 'storm' do
+user storm_user do
   comment 'For storm services'
-  gid 'storm'
-  home '/home/storm'
+  gid storm_user
+  home "/home/#{storm_user}"
   shell '/bin/bash'
   action :create
 end
@@ -56,16 +57,16 @@ script 'install_storm' do
     tar zxvf /tmp/#{storm_package_name}.tar.gz -C #{install_dir}
     rm -rf #{install_dir}/#{storm_version}
     mv #{install_dir}/#{storm_package_name} #{install_dir}/#{storm_version}
-    chown -R storm:storm #{install_dir}/#{storm_version}
+    chown -R #{storm_user}:#{storm_user} #{install_dir}/#{storm_version}
   EOL
   not_if { ::File.exist?("#{install_dir}/#{storm_version}") }
 end
 
 template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
   source 'storm.yaml.erb'
-  mode '0440'
-  owner 'root'
-  group 'root'
+  mode '0644'
+  owner storm_user
+  group storm_user
   variables(
     'storm_yaml' => node['storm']['storm_yaml']
   )

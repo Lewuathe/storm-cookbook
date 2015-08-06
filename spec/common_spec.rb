@@ -55,9 +55,9 @@ describe 'storm-cluster::common' do
       expect(chef_run).to create_template(
         '/usr/share/storm/0.9.3/conf/storm.yaml').with(
           source: 'storm.yaml.erb',
-          mode:   '0440',
-          owner:  'root',
-          group:  'root')
+          mode:   '0644',
+          owner:  'storm',
+          group:  'storm')
     end
 
     it 'renders the template storm.yaml tempalte with contents from ./spec/rendered_templates/storm.yaml' do
