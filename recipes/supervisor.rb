@@ -12,9 +12,7 @@ end
 
 service 'storm-supervisor' do
   supports :status => true, :restart => true
-  if node['platform'] == 'ubuntu' && node['platform_version'] == '14.04'
-    then provider Chef::Provider::Service::Upstart
-  end
+  provider Chef::Provider::Service::Upstart if node['platform'] == 'ubuntu'
   action :start
 end
 
