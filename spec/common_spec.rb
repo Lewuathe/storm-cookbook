@@ -27,12 +27,12 @@ describe 'storm-cluster::common' do
     it 'adds the storm user to run the storm application as' do
       expect(chef_run).to create_user('storm').with(
         comment: 'For storm services',
-        group:     'storm',
+        group:   'storm',
         home:    '/home/storm',
         shell:   '/bin/bash')
     end
 
-    it 'creates the directory /usr/share/storm'  do
+    it 'creates the directory /usr/share/storm' do
       expect(chef_run).to create_directory('/usr/share/storm').with(
         owner: 'root',
         group: 'root',
