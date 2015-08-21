@@ -1,3 +1,5 @@
+require 'json'
+
 include_recipe 'java'
 
 storm_package_name = node['storm']['package']
@@ -67,6 +69,6 @@ template "#{install_dir}/#{storm_version}/conf/storm.yaml" do
   owner 'root'
   group 'root'
   variables(
-    'storm_yaml' => node['storm']['storm_yaml']
+    'storm_yaml' => JSON.parse(node['storm']['storm_yaml'].to_hash.dup.to_json)
   )
 end
