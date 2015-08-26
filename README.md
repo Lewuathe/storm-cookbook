@@ -42,11 +42,13 @@ At a minimum you will need create a role/environment/wrapper with the following 
 
 Usage
 -----
-First you have to add your storm package under `files/default` as tar.gz format.
+First you have to add your storm package under `files/default` as tar.gz format in default `install_method`.
 
 ```
 $ cp <your storm package> cookbooks/storm-cluster/files/default/
 ```
+
+If you change `install_method` to `remote_file`, the package will be downloaded automatically.
 
 ## Recipes
 
