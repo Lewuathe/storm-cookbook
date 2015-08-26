@@ -4,7 +4,7 @@ maintainer_email 'lewuathe@me.com'
 license 'MIT License'
 description 'Installs/Configures storm'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.19'
+version '0.0.20'
 depends 'java'
 begin
   source_url 'https://github.com/Lewuathe/storm-cookbook'
