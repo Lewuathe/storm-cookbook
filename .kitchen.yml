@@ -13,3 +13,11 @@ suites:
     run_list:
       - recipe[storm-cluster::nimbus]
     attributes:
+      storm:
+        install_method: "remote_file"
+  - name: storm-supervisor
+    run_list:
+      - recipe[storm-cluster::supervisor]
+    attributes:
+      storm:
+        install_method: "remote_file"

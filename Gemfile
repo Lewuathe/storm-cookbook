@@ -7,6 +7,7 @@ group :test do
   gem 'foodcritic'
   gem 'rubocop'
   gem 'chefspec'
+  gem 'serverspec'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-rubocop'
