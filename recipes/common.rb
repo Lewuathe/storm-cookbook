@@ -1,5 +1,6 @@
 require 'json'
 
+include_recipe 'apt'
 include_recipe 'java'
 
 storm_user = node['storm']['user']

@@ -6,6 +6,7 @@ description 'Installs/Configures storm'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.0.21'
 depends 'java'
+depends 'apt'
 begin
   source_url 'https://github.com/Lewuathe/storm-cookbook'
   issues_url 'https://github.com/Lewuathe/storm-cookbook/issues'
