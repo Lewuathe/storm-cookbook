@@ -8,5 +8,3 @@
 #
 
 include_recipe 'storm-cluster::common'
-
-
