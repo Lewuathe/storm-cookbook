@@ -3,14 +3,16 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
   - name: ubuntu-12.04
-  - name: centos-6.4
 
 suites:
-  - name: default
+  - name: storm-nimbus
     run_list:
-      - recipe[storm-cluster::default]
+      - recipe[apt]
+      - recipe[storm-cluster::nimbus]
     attributes:
+      storm:
+        install_method: 'remote_file'

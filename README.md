@@ -12,6 +12,8 @@ Requirements
 Chef: 11.18.0+
 java
 
+When you run this cookbook on debian platform, you should run also `apt::default`  recipe before storm recipes.
+
 Attributes
 ----------
 
