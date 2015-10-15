@@ -11,5 +11,8 @@ platforms:
 suites:
   - name: storm-nimbus
     run_list:
+      - recipe[apt]
       - recipe[storm-cluster::nimbus]
     attributes:
+      storm:
+        install_method: 'remote_file'
