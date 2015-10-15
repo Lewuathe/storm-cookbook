@@ -28,6 +28,7 @@ end
 
 user storm_user do
   comment 'For storm services'
+  uid node['storm']['uid'] if node['storm']['uid']
   gid storm_user
   home "/home/#{storm_user}"
   shell '/bin/bash'
