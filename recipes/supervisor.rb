@@ -10,14 +10,14 @@ template '/etc/init/storm-logviewer.conf' do
   variables(
     :service => 'logviewer'
   )
-  only_if node['storm']['enable_logviewer']
+  only_if node['storm']['enable_logviewer'] == 'true'
 end
 
 service 'storm-logviewer' do
   supports :status => true, :restart => true
   provider Chef::Provider::Service::Upstart if node['platform'] == 'ubuntu'
   action :start
-  only_if node['storm']['enable_logviewer']
+  only_if node['storm']['enable_logviewer'] == 'true'
 end
 
 template '/etc/init/storm-supervisor.conf' do
