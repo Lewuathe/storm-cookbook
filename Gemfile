@@ -4,11 +4,11 @@ gem 'berkshelf'
 gem 'rake'
 
 group :test do
-  gem 'foodcritic'
-  gem 'rubocop'
   gem 'chefspec'
+  gem 'foodcritic'
   gem 'guard'
+  gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'guard-foodcritic'
+  gem 'rubocop'
 end

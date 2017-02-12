@@ -22,6 +22,9 @@ LineLength:
   Enabled: false
 MethodLength:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
 SignalException:
   Enabled: false
 TrailingCommaInLiteral:
