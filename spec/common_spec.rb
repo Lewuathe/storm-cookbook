@@ -14,14 +14,17 @@ describe 'storm-cluster::common' do
 
     it 'creates the file "/tmp/config_hosts.sh"' do
       expect(chef_run).to create_cookbook_file(
-        '/tmp/config_hosts.sh').with(
-          source: 'config_hosts.sh')
+        '/tmp/config_hosts.sh'
+      ).with(
+        source: 'config_hosts.sh'
+      )
     end
 
     it 'runs the config_hosts.sh script' do
       expect(chef_run).to run_script('config_hosts').with(
         interpreter: 'bash',
-        user:        'root')
+        user:        'root'
+      )
     end
 
     it 'adds the storm user to run the storm application as' do
@@ -29,35 +32,42 @@ describe 'storm-cluster::common' do
         comment: 'For storm services',
         group:   'storm',
         home:    '/home/storm',
-        shell:   '/bin/bash')
+        shell:   '/bin/bash'
+      )
     end
 
     it 'creates the directory /usr/share/storm' do
       expect(chef_run).to create_directory('/usr/share/storm').with(
         owner: 'root',
         group: 'root',
-        mode:  '0755')
+        mode:  '0755'
+      )
     end
 
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_cookbook_file(
-        '/tmp/apache-storm-0.9.3.tar.gz').with(
-          source: 'apache-storm-0.9.3.tar.gz')
+        '/tmp/apache-storm-0.9.3.tar.gz'
+      ).with(
+        source: 'apache-storm-0.9.3.tar.gz'
+      )
     end
 
     it 'runs the install script' do
       expect(chef_run).to run_script('install_storm').with(
         interpreter: 'bash',
-        user:        'root')
+        user:        'root'
+      )
     end
 
     it 'adds the tempalted file /usr/share/storm/apache-storm-0.9.3/conf/storm.yaml' do
       expect(chef_run).to create_template(
-        '/usr/share/storm/0.9.3/conf/storm.yaml').with(
-          source: 'storm.yaml.erb',
-          mode:   '0644',
-          owner:  'storm',
-          group:  'storm')
+        '/usr/share/storm/0.9.3/conf/storm.yaml'
+      ).with(
+        source: 'storm.yaml.erb',
+        mode:   '0644',
+        owner:  'storm',
+        group:  'storm'
+      )
     end
 
     it 'renders the template storm.yaml tempalte with contents from ./spec/rendered_templates/storm.yaml' do
@@ -74,8 +84,10 @@ describe 'storm-cluster::common' do
 
     it 'creates the file "/tmp/apache-storm-0.9.3.tar.gz"' do
       expect(chef_run).to create_remote_file(
-        '/tmp/apache-storm-0.9.3.tar.gz').with(
-          source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz')
+        '/tmp/apache-storm-0.9.3.tar.gz'
+      ).with(
+        source: 'http://mirror.sdunix.com/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz'
+      )
     end
   end
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'storm-cluster::supervisor' do
-  let(:chef_run) do 
+  let(:chef_run) do
     ChefSpec::ServerRunner.new do |node|
       node.override['storm']['enable_logviewer'] = true
     end.converge(described_recipe)
