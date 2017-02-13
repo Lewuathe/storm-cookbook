@@ -1,5 +1,25 @@
 include_recipe 'storm-cluster::common'
 
+# Optionally enable the log viewer service on worker/supervisor nodes
+
+template '/etc/init/storm-logviewer.conf' do
+  source 'storm-daemon.conf.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
+  variables(
+    :service => 'logviewer'
+  )
+  only_if node['storm']['enable_logviewer'] == 'true'
+end
+
+service 'storm-logviewer' do
+  supports :status => true, :restart => true
+  provider Chef::Provider::Service::Upstart if node['platform'] == 'ubuntu'
+  action :start
+  only_if node['storm']['enable_logviewer'] == 'true'
+end
+
 template '/etc/init/storm-supervisor.conf' do
   source 'storm-daemon.conf.erb'
   mode '0644'
